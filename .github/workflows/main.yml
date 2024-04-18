@@ -2,11 +2,12 @@ name: Deploy to cPanel
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -19,6 +20,3 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-
-      - name: Build
-        run: npm run build
